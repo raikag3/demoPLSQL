@@ -3,6 +3,7 @@ DECLARE
       SELECT account_id, oper_type, new_value FROM action
       ORDER BY time_tag
       FOR UPDATE OF status;
+      << comentario uno>>
 BEGIN
    FOR acct IN c1 LOOP  -- process each row one at a time
 
@@ -34,6 +35,7 @@ BEGIN
    /* instead.                                   */
    /*--------------------------------------------*/
    ELSIF acct.oper_type = 'I' THEN
+   << comentario uno>>
       BEGIN
          INSERT INTO accounts
             VALUES (acct.account_id, acct.new_value);
